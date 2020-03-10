@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:ricercaStringhe"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FF811111">
         <TextBox  x:Name="txt_multilinea" HorizontalAlignment="Left" Margin="33,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="339" Height="376" />
         <TextBox x:Name="txt_ricerca" HorizontalAlignment="Left" Margin="539,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btn_cerca" Content="Cerca" HorizontalAlignment="Left" Margin="554,159,0,0" VerticalAlignment="Top" Width="90" Click="btn_cerca_Click"/>
-        <Label x:Name="lbl_risp" Content="" HorizontalAlignment="Left" Margin="422,202,0,0" VerticalAlignment="Top" Width="354" Height="203"/>
+        <Label x:Name="lbl_risp" Content="" HorizontalAlignment="Left" Margin="422,202,0,0" VerticalAlignment="Top" Width="354" Height="203" Foreground="White"/>
 
     </Grid>
 </Window>

@@ -27,27 +27,27 @@ namespace ricercaStringhe
 
         private void btn_cerca_Click(object sender, RoutedEventArgs e)
         {
+            
+            string trovato = "";
             string testo = txt_multilinea.Text;
             string ricerca = txt_ricerca.Text;
             if(testo.Contains(ricerca))
             {
-                int index = testo.IndexOf(ricerca);
+                int index = testo.IndexOf(ricerca,StringComparison.OrdinalIgnoreCase);
                 int grandezza = testo.Length;
                 int offsetSinistro = testo.LastIndexOf(" ",Math.Max(0, index - 3));
-                if(offsetSinistro<0)
+                if(offsetSinistro < 0)
                 {
                     offsetSinistro = 0;
                 }
-                int offsetDestro = testo.IndexOf(" ",index + ricerca.Length);
-                //if (offsetDestro > grandezza)
-                //{
-                //    offsetDestro = 0;
-                //}
-                int offsetfine = offsetDestro - offsetSinistro + ricerca.Length;
-                string trovato = testo.Substring(offsetSinistro,Math.Min(0,offsetfine));
-                if(offsetfine>grandezza)
+                int offsetDestro = testo.IndexOf(" ",Math.Min(grandezza,index+ 2));
+                if (offsetDestro < 0 )
                 {
-                    offsetfine = grandezza;
+                    trovato = testo.Substring(offsetSinistro, grandezza- offsetSinistro);
+                }
+                else
+                {
+                    trovato = testo.Substring(offsetSinistro, offsetDestro - offsetSinistro + ricerca.Length);
                 }
                 lbl_risp.Content = $"...{trovato}...";
             }
